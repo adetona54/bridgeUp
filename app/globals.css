@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest:      #1C3A2E;
+  --moss:        #2D5A40;
+  --cream:       #F5F0E8;
+  --cream-dark:  #EDE7D9;
+  --amber:       #E8A830;
+  --amber-light: #F5C85A;
+  --earth:       #3A2E22;
+  --earth-light: #6B5744;
+  --ghost:       rgba(28,58,46,0.08);
+  --ghost-md:    rgba(28,58,46,0.14);
+  --shadow-card: 0 2px 12px rgba(28,58,46,0.10), 0 1px 3px rgba(28,58,46,0.06);
+  --shadow-lift: 0 8px 32px rgba(28,58,46,0.16), 0 2px 8px rgba(28,58,46,0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--earth);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Feed card tilt — the signature interaction */
+.feed-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.feed-card:hover {
+  transform: rotate(-1.5deg) translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Match card hero tilt */
+.match-card-demo:hover {
+  transform: rotate(-1deg) translateY(-4px);
+}
+
+/* Scroll reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--ghost-md); border-radius: 4px; }
+
+/* Timer ring animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.timer-ring-animated {
+  animation: spin 30s linear infinite;
+}
