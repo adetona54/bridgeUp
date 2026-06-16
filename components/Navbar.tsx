@@ -32,7 +32,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const isDashboardPage = ['/dashboard','/ask-builder','/session','/inbox','/impact','/guides'].some(p => pathname.startsWith(p))
+  const isDashboardPage = ['/dashboard','/ask-builder','/session','/inbox','/impact'].some(p => pathname.startsWith(p))
 
   if (isDashboardPage) return null
 
